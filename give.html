@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Online Booking</title>
+
+    <!-- // _BEGIN > Required Meta Tags < AVN // -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- // _ENDS > Required Meta Tags < AVN // -->
+
+    <!-- // _BEGIN > Required Icon Link < AVN // -->
+    <link rel="icon" href="./assets/images/icons/Favicon.png" />
+    <link rel="shortcut icon" href="./assets/images/Favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/images/icons/Favicon.png" />
+    <!-- // _ENDS > Required Icon Link < AVN // -->
+
+    <!-- // _BEGIN > Required Stylesheet Links < AVN // -->
+    <link rel="stylesheet" href="./assets/aicon/style.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/calender/style.css" /> -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/calender/jquery-nao-calendar.css"
+    />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/responsive.css" /> -->
+    <!-- // _ENDS > Required Stylesheet Links < AVN // -->
+  </head>
+
+  <body>
+    <!-- // _BEGIN > Component - Header < AVN // -->
+    <!-- // _BEGIN > Navbar < AVN // -->
+    <header>
+      <nav class="navbar navbar-expand-lg header-nav">
+        <div class="container">
+          <div class="accessories">
+            <div class="user-profile-icon">
+              <a href="javascript:void(0)" class="user-icon cart-icon">
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5 12.4999C15.3764 12.4999 17.7083 10.1681 17.7083 7.29158C17.7083 4.4151 15.3764 2.08325 12.5 2.08325C9.62348 2.08325 7.29163 4.4151 7.29163 7.29158C7.29163 10.1681 9.62348 12.4999 12.5 12.4999Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M12.5 15.1042C7.28125 15.1042 3.03125 18.6042 3.03125 22.9167C3.03125 23.2084 3.26042 23.4376 3.55208 23.4376H21.4479C21.7396 23.4376 21.9687 23.2084 21.9687 22.9167C21.9687 18.6042 17.7187 15.1042 12.5 15.1042Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <a class="navbar-brand" href="index.html"
+            ><img src="./assets/images/icons/header/logo.svg" alt="header-logo"
+          /></a>
+          <div
+            class="collapse navbar-collapse mx-auto justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link primry-color" href="index.html">Book</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active primry-color"
+                  aria-current="page"
+                  href="give.html"
+                  >Give</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link primry-color" href="javascript:void(0)"
+                  >Reedem</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link primry-color" href="javascript:void(0)"
+                  >Proflyer</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div
+            class="header-icon-button d-flex justify-content-between align-items-center"
+          >
+            <div class="position-relative add-to-cart">
+              <a
+                href="javascript:void(0)"
+                class="cart-icon shopping-cart position-relative"
+              >
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.927 23.4376C17.9338 23.4376 18.75 22.6214 18.75 21.6147C18.75 20.6079 17.9338 19.7917 16.927 19.7917C15.9203 19.7917 15.1041 20.6079 15.1041 21.6147C15.1041 22.6214 15.9203 23.4376 16.927 23.4376Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M8.59379 23.4376C9.60056 23.4376 10.4167 22.6214 10.4167 21.6147C10.4167 20.6079 9.60056 19.7917 8.59379 19.7917C7.58702 19.7917 6.77087 20.6079 6.77087 21.6147C6.77087 22.6214 7.58702 23.4376 8.59379 23.4376Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M5.04171 4.10409L4.83337 6.65617C4.79171 7.14575 5.17712 7.552 5.66671 7.552H21.6146C22.0521 7.552 22.4167 7.21867 22.448 6.78117C22.5834 4.93742 21.1771 3.43742 19.3334 3.43742H6.53129C6.42712 2.97909 6.21879 2.54159 5.89587 2.177C5.37504 1.62492 4.64587 1.302 3.89587 1.302H2.08337C1.65629 1.302 1.30212 1.65617 1.30212 2.08325C1.30212 2.51034 1.65629 2.8645 2.08337 2.8645H3.89587C4.21879 2.8645 4.52087 2.99992 4.73962 3.22909C4.95837 3.46867 5.06254 3.78117 5.04171 4.10409Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M21.3646 9.1145H5.38543C4.94793 9.1145 4.59376 9.44783 4.5521 9.87492L4.1771 14.4062C4.03126 16.1874 5.4271 17.7082 7.20835 17.7082H18.7917C20.3542 17.7082 21.7292 16.427 21.8438 14.8645L22.1875 9.99992C22.2292 9.52075 21.8542 9.1145 21.3646 9.1145Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="user-profile-icon">
+              <a href="javascript:void(0)" class="user-icon cart-icon">
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5 12.4999C15.3764 12.4999 17.7083 10.1681 17.7083 7.29158C17.7083 4.4151 15.3764 2.08325 12.5 2.08325C9.62348 2.08325 7.29163 4.4151 7.29163 7.29158C7.29163 10.1681 9.62348 12.4999 12.5 12.4999Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M12.5 15.1042C7.28125 15.1042 3.03125 18.6042 3.03125 22.9167C3.03125 23.2084 3.26042 23.4376 3.55208 23.4376H21.4479C21.7396 23.4376 21.9687 23.2084 21.9687 22.9167C21.9687 18.6042 17.7187 15.1042 12.5 15.1042Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="header-spacing"></div>
+    <!-- // _ENDS > Navbar < AVN // -->
+    <!-- // _ENDS > Component - Header < AVN // -->
+
+    <!-- // _BEGIN > Give Wrapper Section < AVN // -->
+    <section class="give-wrapper">
+      <div class="container">
+        <div
+          class="header-content d-flex justify-content-between align-items-center"
+        >
+          <div
+            class="give-title-wrap d-flex align-items-center justify-content-center"
+          >
+            <div class="give-wrap-border"></div>
+            <h3 class="h3 text-color">
+              You are looking for an extraordinary gift?
+            </h3>
+          </div>
+          <div class="give-wrap-content">
+            <p class="text-color">
+              Choose fun, emotions, adrenalin and happiness to give to your
+              friends! Indoor Skydiving (Bodyflying) can be done by everybody
+              between 4 and 104 years! There is no previous knowledge...
+            </p>
+          </div>
+        </div>
+        <div class="dotted-bordered my-3"></div>
+        <div class="give-wrapper-list">
+          <span class="text-color text">All packages include:</span>
+          <ul class="list-unstyled">
+            <li>
+              <span class="flex-shrink-0 me-3">
+                <img
+                  src="./assets/images/icons/give-page/finger.svg"
+                  alt="finger"
+                  class="img-fluid"
+              /></span>
+              <span class="text-color text"
+                >A 20 minutes personal briefing by your instructor. Learn the
+                basic positions and how to behave in a wind tunnel
+              </span>
+            </li>
+            <li>
+              <span class="me-3 flex-shrink-0">
+                <img
+                  src="./assets/images/icons/give-page/finger.svg"
+                  alt="finger"
+                  class="img-fluid"
+              /></span>
+              <span class="text-color text"
+                >We provide you with your equipment (suite. helmet. goggles and
+                ear protection)
+              </span>
+            </li>
+            <li>
+              <span class="me-3 flex-shrink-0">
+                <img
+                  src="./assets/images/icons/give-page/finger.svg"
+                  alt="finger"
+                  class="img-fluid"
+              /></span>
+              <span class="text-color text"
+                >You will enter the wind tunnel as a group with other flyers
+                (antechamber). You have the opportunity to watch other people
+                fly and progress in between your flights (every group stays in
+                the antechamber for about 30 minutes)
+              </span>
+            </li>
+            <li>
+              <span class="flex-shrink-0 me-3">
+                <img
+                  src="./assets/images/icons/give-page/finger.svg"
+                  alt="finger"
+                  class="img-fluid"
+              /></span>
+              <span class="text-color text"
+                >A video system inside the antechamber allows you to watch your
+                progression right after your flight.
+              </span>
+            </li>
+            <li>
+              <span class="flex-shrink-0 me-3">
+                <img
+                  src="./assets/images/icons/give-page/finger.svg"
+                  alt="finger"
+                  class="img-fluid"
+              /></span>
+              <span class="text-color text"
+                >After exiting the wind tunnel you receive a personalized
+                debriefing including a flight certificate. Further more we will
+                give you information on your development to become a bodyflyer.
+              </span>
+            </li>
+          </ul>
+          <span class="text-color text"
+            >Your voucher is valid for 3 years.</span
+          >
+        </div>
+        <div class="custom-tabs-wrap space-small-top b-radius">
+          <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item h6" role="presentation">
+              <button
+                class="nav-link active"
+                id="pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-home"
+                type="button"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+              >
+                For One
+              </button>
+            </li>
+            <li class="nav-item h6" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-profile-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-profile"
+                type="button"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+              >
+                For two
+              </button>
+            </li>
+            <li class="nav-item h6" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-contact-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-contact"
+                type="button"
+                role="tab"
+                aria-controls="pills-contact"
+                aria-selected="false"
+              >
+                Groups and Families
+              </button>
+            </li>
+            <li class="nav-item h6" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-contact-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-contact"
+                type="button"
+                role="tab"
+                aria-controls="pills-contact"
+                aria-selected="false"
+              >
+                courses
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <div class="row g-5 justify-content-center">
+                <div class="col-xl-4 col-md-6">
+                  <div class="profile-card">
+                    <div class="tabbing-image">
+                      <img
+                        src="./assets/images/tabs-image/fly-one.jpg"
+                        class="img-fluid"
+                        alt="fly-one"
+                      />
+                      <a
+                        href="javascipt:void(0)"
+                        class="btn white-btn details-btn"
+                        >Details</a
+                      >
+                    </div>
+                    <div class="profile-detail">
+                      <div class="profile-header">
+                        <a href="javascript:void(0)" class="h5 text-color"
+                          >Fly One</a
+                        >
+                        <!-- <h5 class="text-color">Fly One</h5></a -->
+                        <div>
+                          <p>
+                            <span class="green-txt-color text">€48.02</span>
+                            <del
+                              ><span class="small primry-color"
+                                >(€49.02)</span
+                              ></del
+                            >
+                          </p>
+                        </div>
+                      </div>
+                      <div class="mb-4 border-solid"></div>
+                      <div
+                        class="person-miniutes-wrap d-flex justify-content-between"
+                      >
+                        <div class="booking-wrap">
+                          <div
+                            class="d-inline-flex align-items-lg-start justify-content-center flex-item m-right"
+                          >
+                            <div class="me-2 d-flex">
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11 11C13.5313 11 15.5833 8.94797 15.5833 6.41666C15.5833 3.88536 13.5313 1.83333 11 1.83333C8.46868 1.83333 6.41666 3.88536 6.41666 6.41666C6.41666 8.94797 8.46868 11 11 11Z"
+                                  fill="#8F9DBF"
+                                />
+                                <path
+                                  d="M11 13.2917C6.40751 13.2917 2.66751 16.3717 2.66751 20.1667C2.66751 20.4233 2.86918 20.625 3.12584 20.625H18.8742C19.1308 20.625 19.3325 20.4233 19.3325 20.1667C19.3325 16.3717 15.5925 13.2917 11 13.2917Z"
+                                  fill="#8F9DBF"
+                                />
+                              </svg>
+                            </div>
+                            <div class="per-times-wrap">
+                              <span class="d-block text-color h6 mb-0 me-2"
+                                >1</span
+                              >
+                              <span class="text">Persons</span>
+                            </div>
+                          </div>
+                          <div
+                            class="d-inline-flex align-items-lg-start justify-content-center flex-item"
+                          >
+                            <div class="me-2 d-flex">
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11 1.83333C5.94916 1.83333 1.83333 5.94916 1.83333 11C1.83333 16.0508 5.94916 20.1667 11 20.1667C16.0508 20.1667 20.1667 16.0508 20.1667 11C20.1667 5.94916 16.0508 1.83333 11 1.83333ZM14.9875 14.2725C14.8592 14.4925 14.63 14.6117 14.3917 14.6117C14.2725 14.6117 14.1533 14.5842 14.0433 14.5108L11.2017 12.815C10.4958 12.3933 9.97333 11.4675 9.97333 10.6517V6.89333C9.97333 6.51749 10.285 6.20583 10.6608 6.20583C11.0367 6.20583 11.3483 6.51749 11.3483 6.89333V10.6517C11.3483 10.9817 11.6233 11.4675 11.9075 11.6325L14.7492 13.3283C15.0792 13.5208 15.1892 13.9425 14.9875 14.2725Z"
+                                  fill="#8F9DBF"
+                                />
+                              </svg>
+                            </div>
+                            <div class="per-times-wrap">
+                              <span class="d-block text-color h6 mb-0 me-2"
+                                >2</span
+                              >
+                              <span class="text">Minutes</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="book-now-btn">
+                          <a class="btn book-now" href="javascipt:void(0)">
+                            <span class="me-2 d-inline-flex"
+                              ><svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 25 25"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M22.9167 11.1979C23.3438 11.1979 23.6979 10.8438 23.6979 10.4167V9.375C23.6979 4.78126 22.3021 3.38542 17.7083 3.38542H11.1979V5.72917C11.1979 6.15626 10.8438 6.51042 10.4167 6.51042C9.98958 6.51042 9.63542 6.15626 9.63542 5.72917V3.38542H7.29167C2.69792 3.38542 1.30208 4.78126 1.30208 9.375V9.89584C1.30208 10.3229 1.65625 10.6771 2.08333 10.6771C3.08333 10.6771 3.90625 11.5 3.90625 12.5C3.90625 13.5 3.08333 14.3229 2.08333 14.3229C1.65625 14.3229 1.30208 14.6771 1.30208 15.1042V15.625C1.30208 20.2188 2.69792 21.6146 7.29167 21.6146H9.63542V19.2708C9.63542 18.8438 9.98958 18.4896 10.4167 18.4896C10.8438 18.4896 11.1979 18.8438 11.1979 19.2708V21.6146H17.7083C22.3021 21.6146 23.6979 20.2188 23.6979 15.625C23.6979 15.1979 23.3438 14.8438 22.9167 14.8438C21.9167 14.8438 21.0938 14.0208 21.0938 13.0208C21.0938 12.0208 21.9167 11.1979 22.9167 11.1979ZM11.1979 14.7604C11.1979 15.1875 10.8438 15.5417 10.4167 15.5417C9.98958 15.5417 9.63542 15.1875 9.63542 14.7604V10.2396C9.63542 9.8125 9.98958 9.45834 10.4167 9.45834C10.8438 9.45834 11.1979 9.8125 11.1979 10.2396V14.7604Z"
+                                  fill="white"
+                                />
+                              </svg>
+                            </span>
+                            <span class="text-white text">Book Now</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                  <div class="profile-card">
+                    <div class="tabbing-image">
+                      <img
+                        src="./assets/images/tabs-image/fly-one-top.jpg"
+                        class="img-fluid"
+                        alt="fly-one-top"
+                      />
+                      <div class="ribbon ribbon-top-left">
+                        <span class="small">Top!</span>
+                      </div>
+                      <a
+                        href="javascipt:void(0)"
+                        class="btn white-btn details-btn"
+                        >Details</a
+                      >
+                    </div>
+                    <div class="profile-detail">
+                      <div class="profile-header">
+                        <a href="javascript:void(0)" class="text-color h5"
+                          >Fly One M</a
+                        >
+                        <div>
+                          <p>
+                            <span class="green-txt-color text">€81.00</span>
+                            <del
+                              ><span class="small primry-color"
+                                >(€90.00)</span
+                              ></del
+                            >
+                          </p>
+                        </div>
+                      </div>
+                      <div class="mb-4 border-solid"></div>
+                      <div
+                        class="person-miniutes-wrap d-flex justify-content-between"
+                      >
+                        <div class="booking-wrap">
+                          <div
+                            class="d-inline-flex align-items-lg-start justify-content-center flex-item m-right"
+                          >
+                            <div class="me-2 d-flex">
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11 11C13.5313 11 15.5833 8.94797 15.5833 6.41666C15.5833 3.88536 13.5313 1.83333 11 1.83333C8.46868 1.83333 6.41666 3.88536 6.41666 6.41666C6.41666 8.94797 8.46868 11 11 11Z"
+                                  fill="#8F9DBF"
+                                />
+                                <path
+                                  d="M11 13.2917C6.40751 13.2917 2.66751 16.3717 2.66751 20.1667C2.66751 20.4233 2.86918 20.625 3.12584 20.625H18.8742C19.1308 20.625 19.3325 20.4233 19.3325 20.1667C19.3325 16.3717 15.5925 13.2917 11 13.2917Z"
+                                  fill="#8F9DBF"
+                                />
+                              </svg>
+                            </div>
+                            <div class="per-times-wrap">
+                              <span class="d-block text-color h6 mb-0 me-2"
+                                >1</span
+                              >
+                              <span class="text">Persons</span>
+                            </div>
+                          </div>
+                          <div
+                            class="d-inline-flex align-items-lg-start justify-content-center flex-item"
+                          >
+                            <div class="me-2 d-flex">
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11 1.83333C5.94916 1.83333 1.83333 5.94916 1.83333 11C1.83333 16.0508 5.94916 20.1667 11 20.1667C16.0508 20.1667 20.1667 16.0508 20.1667 11C20.1667 5.94916 16.0508 1.83333 11 1.83333ZM14.9875 14.2725C14.8592 14.4925 14.63 14.6117 14.3917 14.6117C14.2725 14.6117 14.1533 14.5842 14.0433 14.5108L11.2017 12.815C10.4958 12.3933 9.97333 11.4675 9.97333 10.6517V6.89333C9.97333 6.51749 10.285 6.20583 10.6608 6.20583C11.0367 6.20583 11.3483 6.51749 11.3483 6.89333V10.6517C11.3483 10.9817 11.6233 11.4675 11.9075 11.6325L14.7492 13.3283C15.0792 13.5208 15.1892 13.9425 14.9875 14.2725Z"
+                                  fill="#8F9DBF"
+                                />
+                              </svg>
+                            </div>
+                            <div class="per-times-wrap">
+                              <span class="d-block text-color h6 mb-0 me-2"
+                                >4</span
+                              >
+                              <span class="text">Minutes</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="book-now-btn">
+                          <a href="javascipt:void(0)" class="btn book-now">
+                            <span class="me-2 d-inline-flex"
+                              ><svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 25 25"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M22.9167 11.1979C23.3438 11.1979 23.6979 10.8438 23.6979 10.4167V9.375C23.6979 4.78126 22.3021 3.38542 17.7083 3.38542H11.1979V5.72917C11.1979 6.15626 10.8438 6.51042 10.4167 6.51042C9.98958 6.51042 9.63542 6.15626 9.63542 5.72917V3.38542H7.29167C2.69792 3.38542 1.30208 4.78126 1.30208 9.375V9.89584C1.30208 10.3229 1.65625 10.6771 2.08333 10.6771C3.08333 10.6771 3.90625 11.5 3.90625 12.5C3.90625 13.5 3.08333 14.3229 2.08333 14.3229C1.65625 14.3229 1.30208 14.6771 1.30208 15.1042V15.625C1.30208 20.2188 2.69792 21.6146 7.29167 21.6146H9.63542V19.2708C9.63542 18.8438 9.98958 18.4896 10.4167 18.4896C10.8438 18.4896 11.1979 18.8438 11.1979 19.2708V21.6146H17.7083C22.3021 21.6146 23.6979 20.2188 23.6979 15.625C23.6979 15.1979 23.3438 14.8438 22.9167 14.8438C21.9167 14.8438 21.0938 14.0208 21.0938 13.0208C21.0938 12.0208 21.9167 11.1979 22.9167 11.1979ZM11.1979 14.7604C11.1979 15.1875 10.8438 15.5417 10.4167 15.5417C9.98958 15.5417 9.63542 15.1875 9.63542 14.7604V10.2396C9.63542 9.8125 9.98958 9.45834 10.4167 9.45834C10.8438 9.45834 11.1979 9.8125 11.1979 10.2396V14.7604Z"
+                                  fill="white"
+                                />
+                              </svg>
+                            </span>
+                            <span class="text-white text">Book Now</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                  <div class="profile-card">
+                    <div class="tabbing-image">
+                      <img
+                        src="./assets/images/tabs-image/kids-fight.jpg"
+                        class="img-fluid"
+                        alt="kids-fight"
+                      />
+                      <a
+                        href="javascipt:void(0)"
+                        class="btn white-btn details-btn"
+                        >Details</a
+                      >
+                    </div>
+                    <div class="profile-detail">
+                      <div class="profile-header">
+                        <a href="javascript:void(0)" class="text-color h5"
+                          >Kids Flight</a
+                        >
+                        <div>
+                          <p>
+                            <span class="green-txt-color text">€33.00</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="mb-4 border-solid"></div>
+                      <div
+                        class="person-miniutes-wrap d-flex justify-content-between"
+                      >
+                        <div class="booking-wrap">
+                          <div
+                            class="d-inline-flex align-items-lg-start justify-content-center flex-item m-right"
+                          >
+                            <div class="me-2 d-flex">
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11 11C13.5313 11 15.5833 8.94797 15.5833 6.41666C15.5833 3.88536 13.5313 1.83333 11 1.83333C8.46868 1.83333 6.41666 3.88536 6.41666 6.41666C6.41666 8.94797 8.46868 11 11 11Z"
+                                  fill="#8F9DBF"
+                                />
+                                <path
+                                  d="M11 13.2917C6.40751 13.2917 2.66751 16.3717 2.66751 20.1667C2.66751 20.4233 2.86918 20.625 3.12584 20.625H18.8742C19.1308 20.625 19.3325 20.4233 19.3325 20.1667C19.3325 16.3717 15.5925 13.2917 11 13.2917Z"
+                                  fill="#8F9DBF"
+                                />
+                              </svg>
+                            </div>
+                            <div class="per-times-wrap">
+                              <span class="d-block text-color h6 mb-0 me-2"
+                                >1</span
+                              >
+                              <span class="text">Persons</span>
+                            </div>
+                          </div>
+                          <div
+                            class="d-inline-flex align-items-lg-start justify-content-center flex-item"
+                          >
+                            <div class="me-2 d-flex">
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11 1.83333C5.94916 1.83333 1.83333 5.94916 1.83333 11C1.83333 16.0508 5.94916 20.1667 11 20.1667C16.0508 20.1667 20.1667 16.0508 20.1667 11C20.1667 5.94916 16.0508 1.83333 11 1.83333ZM14.9875 14.2725C14.8592 14.4925 14.63 14.6117 14.3917 14.6117C14.2725 14.6117 14.1533 14.5842 14.0433 14.5108L11.2017 12.815C10.4958 12.3933 9.97333 11.4675 9.97333 10.6517V6.89333C9.97333 6.51749 10.285 6.20583 10.6608 6.20583C11.0367 6.20583 11.3483 6.51749 11.3483 6.89333V10.6517C11.3483 10.9817 11.6233 11.4675 11.9075 11.6325L14.7492 13.3283C15.0792 13.5208 15.1892 13.9425 14.9875 14.2725Z"
+                                  fill="#8F9DBF"
+                                />
+                              </svg>
+                            </div>
+                            <div class="per-times-wrap">
+                              <span class="d-block text-color h6 mb-0 me-2"
+                                >2</span
+                              >
+                              <span class="text">Minutes</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="book-now-btn">
+                          <a href="javascipt:void(0)" class="btn book-now">
+                            <span class="me-2 d-inline-flex"
+                              ><svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 25 25"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M22.9167 11.1979C23.3438 11.1979 23.6979 10.8438 23.6979 10.4167V9.375C23.6979 4.78126 22.3021 3.38542 17.7083 3.38542H11.1979V5.72917C11.1979 6.15626 10.8438 6.51042 10.4167 6.51042C9.98958 6.51042 9.63542 6.15626 9.63542 5.72917V3.38542H7.29167C2.69792 3.38542 1.30208 4.78126 1.30208 9.375V9.89584C1.30208 10.3229 1.65625 10.6771 2.08333 10.6771C3.08333 10.6771 3.90625 11.5 3.90625 12.5C3.90625 13.5 3.08333 14.3229 2.08333 14.3229C1.65625 14.3229 1.30208 14.6771 1.30208 15.1042V15.625C1.30208 20.2188 2.69792 21.6146 7.29167 21.6146H9.63542V19.2708C9.63542 18.8438 9.98958 18.4896 10.4167 18.4896C10.8438 18.4896 11.1979 18.8438 11.1979 19.2708V21.6146H17.7083C22.3021 21.6146 23.6979 20.2188 23.6979 15.625C23.6979 15.1979 23.3438 14.8438 22.9167 14.8438C21.9167 14.8438 21.0938 14.0208 21.0938 13.0208C21.0938 12.0208 21.9167 11.1979 22.9167 11.1979ZM11.1979 14.7604C11.1979 15.1875 10.8438 15.5417 10.4167 15.5417C9.98958 15.5417 9.63542 15.1875 9.63542 14.7604V10.2396C9.63542 9.8125 9.98958 9.45834 10.4167 9.45834C10.8438 9.45834 11.1979 9.8125 11.1979 10.2396V14.7604Z"
+                                  fill="white"
+                                />
+                              </svg>
+                            </span>
+                            <span class="text-white text">Book Now</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade h6"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
+            >
+              No data Available.
+            </div>
+            <div
+              class="tab-pane fade h6"
+              id="pills-contact"
+              role="tabpanel"
+              aria-labelledby="pills-contact-tab"
+            >
+              No data Available.
+            </div>
+            <div
+              class="tab-pane fade h6"
+              id="pills-contact"
+              role="tabpanel"
+              aria-labelledby="pills-contact-tab"
+            >
+              No data Available.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- // _BEGIN  > Footer < AVN // -->
+      <footer>
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-xl-4">
+              <div class="footer-info">
+                <a href="index.html" class="d-block">
+                  <img
+                    src="./assets/images/icons/header/logo.svg"
+                    alt="footer-logo"
+                    class="footer-logo"
+                  />
+                </a>
+                <div>
+                  <ul class="list-unstyled social-list">
+                    <li>
+                      <a href="tel:+1234-567-890">
+                        <div class="social-icon">
+                          <img
+                            src="./assets/images/icons/give-page/phone.svg"
+                            alt="facebook"
+                          />
+                        </div>
+                        <span class="small text-color">+1234-567-890</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.skydive.com/" target="_blank">
+                        <div class="social-icon">
+                          <img
+                            src="./assets/images/icons/give-page/website.svg"
+                            alt="website"
+                          />
+                        </div>
+                        <span class="small text-color">www.skydive.com</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">
+                        <div class="social-icon">
+                          <img
+                            src="./assets/images/icons/give-page/location.svg"
+                            alt="locaion"
+                          />
+                        </div>
+                        <span class="small text-color"
+                          >24, Bailey Ave, Dallington, NY, USA.</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-8">
+              <div class="row g-5">
+                <div class="col-md-3">
+                  <div class="footer-links">
+                    <h6 class="footer-link-title text-capitalize color-white">
+                      Links
+                    </h6>
+                    <a href="index.html">Book</a>
+                    <a href="give.html">Give</a>
+                    <a href="javascript:void(0)">Reedem</a>
+                    <a href="javascript:void(0)">Proflyer</a>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="footer-links">
+                    <h6 class="footer-link-title text-capitalize color-white">
+                      About Us
+                    </h6>
+                    <a href="javascript:void(0)">Privacy Policy</a>
+                    <a href="javascript:void(0)">Terms & Condition</a>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="footer-links">
+                    <h6 class="footer-link-title text-capitalize color-white">
+                      Social Media Links
+                    </h6>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <ul class="list-unstyled social-list">
+                          <li>
+                            <a href="https://www.facebook.com/" target="_blank">
+                              <div class="social-icon">
+                                <img
+                                  src="./assets/images/icons/give-page/facebook.svg"
+                                  alt="facebook"
+                                />
+                              </div>
+                              <span class="small text-color">Facebook</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.instagram.com/accounts/login/"
+                              target="_blank"
+                            >
+                              <div class="social-icon">
+                                <img
+                                  src="./assets/images/icons/give-page/instagram.svg"
+                                  alt="Instagram"
+                                />
+                              </div>
+                              <span class="small text-color">Instagram</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul class="list-unstyled social-list">
+                          <li>
+                            <a href="https://www.skype.com/en/" target="_blank">
+                              <div class="social-icon">
+                                <img
+                                  src="./assets/images/icons/give-page/skype.svg"
+                                  alt="skype"
+                                />
+                              </div>
+                              <span class="small text-color">Skype</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.youtube.com/" target="_blank">
+                              <div class="social-icon">
+                                <img
+                                  src="./assets/images/icons/give-page/youtube.svg"
+                                  alt="youtube"
+                                />
+                              </div>
+                              <span class="small text-color">YouTube</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+        <div class="copy-right text-center">
+          <div class="container">
+            <p class="text-white mb-0 footer-text">
+              <span class="small-text text-white">
+                Indoor Skydiving © 2021 | All rights reserved</span
+              >
+            </p>
+          </div>
+        </div>
+      </footer>
+      <!-- // _ENDS  > Footer < AVN // -->
+
+      <script src="./assets/js/jquery.min.js"></script>
+      <script src="./assets/js/jquery-pseudo-ripple.js"></script>
+      <script src="./assets/js/jquery-nao-calendar.js"></script>
+      <script src="./assets/js/bootstrap.bundle.min.js"></script>
+      <!-- <script src="./assets/js/custom-script.js"></script> -->
+
+      <script>
+        $(".myCalendar").calendar({
+          date: new Date(),
+          autoSelect: false,
+          select: function (date) {
+            console.log("SELECT", date);
+          },
+          toggle: function (y, m) {
+            console.log("TOGGLE", y, m);
+          },
+        });
+      </script>
+    </section>
+    <!-- // _ENDS > Give Wrapper Section < AVN // -->
+  </body>
+</html>

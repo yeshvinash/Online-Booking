@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Online Booking</title>
+
+    <!-- // _BEGIN > Required Meta Tags < AVN // -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- // _ENDS > Required Meta Tags < AVN // -->
+
+    <!-- // _BEGIN > Required Icon Link < AVN // -->
+    <link rel="icon" href="./assets/images/icons/Favicon.png" />
+    <link rel="shortcut icon" href="./assets/images/Favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/images/icons/Favicon.png" />
+    <!-- // _ENDS > Required Icon Link < AVN // -->
+
+    <!-- // _BEGIN > Required Stylesheet Links < AVN // -->
+    <link rel="stylesheet" href="./assets/aicon/style.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/calender/style.css" /> -->
+    <link
+      rel="stylesheet"
+      href="./assets/css/calender/jquery-nao-calendar.css"
+    />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/responsive.css" /> -->
+    <!-- // _ENDS > Required Stylesheet Links < AVN // -->
+  </head>
+  <body>
+    <!-- // _BEGIN > Component - Header < AVN // -->
+    <!-- // _BEGIN > Navbar < AVN // -->
+    <header>
+      <nav class="navbar navbar-expand-lg header-nav">
+        <div class="container">
+          <div class="accessories">
+            <div class="user-profile-icon">
+              <a href="javascript:void(0)" class="user-icon cart-icon">
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5 12.4999C15.3764 12.4999 17.7083 10.1681 17.7083 7.29158C17.7083 4.4151 15.3764 2.08325 12.5 2.08325C9.62348 2.08325 7.29163 4.4151 7.29163 7.29158C7.29163 10.1681 9.62348 12.4999 12.5 12.4999Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M12.5 15.1042C7.28125 15.1042 3.03125 18.6042 3.03125 22.9167C3.03125 23.2084 3.26042 23.4376 3.55208 23.4376H21.4479C21.7396 23.4376 21.9687 23.2084 21.9687 22.9167C21.9687 18.6042 17.7187 15.1042 12.5 15.1042Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <a class="navbar-brand" href="index.html"
+            ><img src="./assets/images/icons/header/logo.svg" alt="header-logo"
+          /></a>
+          <div
+            class="collapse navbar-collapse mx-auto justify-content-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active primry-color"
+                  aria-current="page"
+                  href="index.html"
+                  >Book</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link primry-color" href="give.html">Give</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link primry-color" href="javascript:void(0)"
+                  >Reedem</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link primry-color" href="javascript:void(0)"
+                  >Proflyer</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div
+            class="header-icon-button d-flex justify-content-between align-items-center"
+          >
+            <div class="position-relative add-to-cart">
+              <a
+                href="javascript:void(0)"
+                class="cart-icon shopping-cart position-relative"
+              >
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.927 23.4376C17.9338 23.4376 18.75 22.6214 18.75 21.6147C18.75 20.6079 17.9338 19.7917 16.927 19.7917C15.9203 19.7917 15.1041 20.6079 15.1041 21.6147C15.1041 22.6214 15.9203 23.4376 16.927 23.4376Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M8.59379 23.4376C9.60056 23.4376 10.4167 22.6214 10.4167 21.6147C10.4167 20.6079 9.60056 19.7917 8.59379 19.7917C7.58702 19.7917 6.77087 20.6079 6.77087 21.6147C6.77087 22.6214 7.58702 23.4376 8.59379 23.4376Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M5.04171 4.10409L4.83337 6.65617C4.79171 7.14575 5.17712 7.552 5.66671 7.552H21.6146C22.0521 7.552 22.4167 7.21867 22.448 6.78117C22.5834 4.93742 21.1771 3.43742 19.3334 3.43742H6.53129C6.42712 2.97909 6.21879 2.54159 5.89587 2.177C5.37504 1.62492 4.64587 1.302 3.89587 1.302H2.08337C1.65629 1.302 1.30212 1.65617 1.30212 2.08325C1.30212 2.51034 1.65629 2.8645 2.08337 2.8645H3.89587C4.21879 2.8645 4.52087 2.99992 4.73962 3.22909C4.95837 3.46867 5.06254 3.78117 5.04171 4.10409Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M21.3646 9.1145H5.38543C4.94793 9.1145 4.59376 9.44783 4.5521 9.87492L4.1771 14.4062C4.03126 16.1874 5.4271 17.7082 7.20835 17.7082H18.7917C20.3542 17.7082 21.7292 16.427 21.8438 14.8645L22.1875 9.99992C22.2292 9.52075 21.8542 9.1145 21.3646 9.1145Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="user-profile-icon">
+              <a href="javascript:void(0)" class="user-icon cart-icon">
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.5 12.4999C15.3764 12.4999 17.7083 10.1681 17.7083 7.29158C17.7083 4.4151 15.3764 2.08325 12.5 2.08325C9.62348 2.08325 7.29163 4.4151 7.29163 7.29158C7.29163 10.1681 9.62348 12.4999 12.5 12.4999Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M12.5 15.1042C7.28125 15.1042 3.03125 18.6042 3.03125 22.9167C3.03125 23.2084 3.26042 23.4376 3.55208 23.4376H21.4479C21.7396 23.4376 21.9687 23.2084 21.9687 22.9167C21.9687 18.6042 17.7187 15.1042 12.5 15.1042Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="header-spacing"></div>
+    <!-- // _ENDS > Navbar < AVN // -->
+    <!-- // _ENDS > Component - Header < AVN // -->
+
+    <!-- // _BEGIN > HERO < AVN // -->
+    <section class="hero">
+      <div class="container">
+        <div class="title">
+          <h5 class="h5 title-text-color header-title">
+            Book your flyONE package
+          </h5>
+        </div>
+        <div class="book-package-wrap d-flex">
+          <div class="hero-text-wrap">
+            <div class="hero-box-wrap number-flyer">
+              <div class="image-wrap position-relative">
+                <img
+                  src="./assets/images/shapes/max-flyers.png"
+                  class="img-fluid"
+                  alt="max-flyers"
+                />
+                <div class="number-text">1</div>
+              </div>
+              <p class="h5 header-title">Max. number of flyer</p>
+            </div>
+            <div class="hero-box-wrap minutes-flying">
+              <div class="image-wrap position-relative">
+                <img
+                  src="./assets/images/shapes/min-flying.png"
+                  class="img-fluid"
+                  alt="min-flying"
+                />
+                <div class="number-text">2</div>
+              </div>
+              <p class="h5 header-title">Minutes of flying</p>
+            </div>
+            <div class="hero-box-wrap flights">
+              <div class="image-wrap position-relative">
+                <img
+                  src="./assets/images/shapes/flights.png"
+                  class="img-fluid"
+                  alt="flights"
+                />
+                <div class="number-text">3</div>
+              </div>
+              <p class="h5 header-title">Flights</p>
+            </div>
+          </div>
+          <div class="list-wrap">
+            <ul class="list-unstyled list-item">
+              <li>
+                <span class="space-right"
+                  ><img src="./assets/images/icons/Person.svg" alt="Person"
+                /></span>
+                <p>2 x 1 Min in the Airflow.</p>
+              </li>
+              <li>
+                <span class="space-right"
+                  ><img src="./assets/images/icons/Duration.svg" alt="Duration"
+                /></span>
+                <p>Adventure Duration about 90 Mins.</p>
+              </li>
+              <li>
+                <span
+                  class="header-title orange-color space-right font-semi-bold h5"
+                  >€</span
+                >
+                <p>
+                  <span class="orange-color">36.75</span>
+                  <span class="small-text"
+                    >/PER PACKAGE (Price on peak time)</span
+                  >
+                </p>
+              </li>
+              <li>
+                <span
+                  class="blue-color header-title font-semi-bold space-right h5"
+                  >€</span
+                >
+                <p>
+                  <span class="blue-color">31.50</span>
+                  <span class="small-text"
+                    >/PER PACKAGE (Price on peak time)</span
+                  >
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row space-top space-small-bottom">
+          <div class="col-xl-3 col-lg-4">
+            <div class="cal-option">
+              <div class="people-fly">
+                <div class="title">
+                  <h5 class="h5 title-text-color title-select">
+                    How many people want to fly?
+                  </h5>
+                </div>
+                <select
+                  class="form-select text"
+                  aria-label="Default select example"
+                >
+                  <option selected>11 Packages, Max. 1 Person</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="calender title title-text-color">
+                <h5 class="h5 mb-3">Select Date</h5>
+                <span class="small light-text-color d-block mb-3"
+                  >Select the date you want to fly.</span
+                >
+                <div class="myCalendar primary-bordered"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-9 col-lg-8">
+            <div class="select-time-wrap">
+              <div
+                class="d-flex justify-content-between align-items-center select-peak-title"
+              >
+                <div class="select-time">
+                  <h5 class="h5 title-text-color">Select Time</h5>
+                </div>
+                <div
+                  class="peak-time d-flex justify-content-between align-items-center"
+                >
+                  <div class="me-5">
+                    <span class="dot blue-dot"></span>
+                    <span class="text">Off Peak Time</span>
+                  </div>
+                  <div>
+                    <span class="dot orange-dot"></span>
+                    <span class="text">Peak Time </span>
+                  </div>
+                </div>
+              </div>
+              <div class="time-schedule-wrap">
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">10:00 AM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 70px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Good</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">10:00 AM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 135px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Half Full</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">12:00 PM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 70px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Good</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">01:00 PM</span>
+                    <span class="orange-color text">€ 36.75</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar progress-dark-bar"
+                      role="progressbar"
+                      style="width: 166px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot orange-dot"></span>
+                    <span class="progress-text-color">Almost Full</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">02:00 PM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 70px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Good</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">03:00 PM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 127px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Half Full</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">04:00 PM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 70px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Good</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">05:00 PM</span>
+                    <span class="orange-color text">€ 36.75</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar progress-dark-bar"
+                      role="progressbar"
+                      style="width: 211px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot orange-dot"></span>
+                    <span class="progress-text-color">Almost Full</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">06:00 PM</span>
+                    <span class="orange-color text">€ 36.75</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar progress-dark-bar"
+                      role="progressbar"
+                      style="width: 180px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot orange-dot"></span>
+                    <span class="progress-text-color">Almost Full</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">07:00 PM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 128px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Half Full</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">08:00 PM</span>
+                    <span class="orange-color text">€ 36.75</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar progress-dark-bar"
+                      role="progressbar"
+                      style="width: 166px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot orange-dot"></span>
+                    <span class="progress-text-color">Almost Full</span>
+                  </div>
+                </div>
+                <div class="daytime-wrap primary-bordered">
+                  <div class="select-time-box d-flex justify-content-between">
+                    <span class="primry-color text">09:00 PM</span>
+                    <span class="blue-color text">€ 31.50</span>
+                  </div>
+                  <div class="progress">
+                    <div
+                      class="progress-bar"
+                      role="progressbar"
+                      style="width: 118px"
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                  <div>
+                    <span class="dot blue-dot"></span>
+                    <span class="progress-text-color">Half Full</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- summry section -->
+        <div class="summary">
+          <div class="title">
+            <h5 class="h5 title-text-color">Summary</h5>
+          </div>
+          <div class="summary-wrap primary-bordered">
+            <div class="white-bordered"></div>
+            <div class="sumy-date-time">
+              <div class="date-time-wrap d-flex align-items-center">
+                <div class="date border-block">
+                  <span class="me-1 text">Date:</span>
+                  <span class="progress-text-color font-medium-bold"
+                    >15 June, 2021</span
+                  >
+                </div>
+                <div class="time">
+                  <span class="me-1 text">Time:</span>
+                  <span class="progress-text-color font-medium-bold"
+                    >03:00 PM</span
+                  >
+                </div>
+              </div>
+              <div class="date-time-wrap d-flex align-items-center">
+                <div class="date">
+                  <span class="me-1 text">Ticket:</span>
+                  <span class="progress-text-color font-medium-bold"
+                    >2 Tickets</span
+                  >
+                </div>
+                <div class="time border-end-0">
+                  <span class="me-1 text">Total:</span>
+                  <span class="progress-text-color font-medium-bold"
+                    >€ 63.00</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrap">
+              <button class="btn primary-btn">Confirm</button>
+            </div>
+          </div>
+          <div class="footer-nav">
+            <nav>
+              <ul class="footer-list list-unstyled">
+                <li>
+                  <a href="javascript:void(0)" class="footer-link">
+                    <img
+                      src="./assets/images/icons/Proflyer.svg"
+                      alt="Proflyer"
+                      class="footer-icon mb-3"
+                    />
+                    <span class="footer-text">Proflyer</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="give.html" class="footer-link">
+                    <img
+                      src="./assets/images/icons/Give.svg"
+                      alt="Give"
+                      class="footer-icon mb-3"
+                    />
+                    <span class="footer-text">Give</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="index.html" class="footer-link">
+                    <img
+                      src="./assets/images/icons/Book.svg"
+                      alt="Book"
+                      class="footer-icon mb-3"
+                    />
+                    <span class="footer-text">Book</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" class="footer-link">
+                    <img
+                      src="./assets/images/icons/Reedem.svg"
+                      alt="Reedem"
+                      class="footer-icon mb-3"
+                    />
+                    <span class="footer-text">Reedem</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" class="footer-link">
+                    <img
+                      src="./assets/images/icons/Menu.svg"
+                      alt="Menu"
+                      class="footer-icon mb-3"
+                    />
+                    <span class="footer-text">Menu</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // _ENDS > HERO < AVN // -->
+
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/jquery-pseudo-ripple.js"></script>
+    <script src="./assets/js/jquery-nao-calendar.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./assets/js/custom-script.js"></script> -->
+
+    <script>
+      $(".myCalendar").calendar({
+        date: new Date(),
+        autoSelect: false,
+        select: function (date) {
+          console.log("SELECT", date);
+        },
+        toggle: function (y, m) {
+          console.log("TOGGLE", y, m);
+        },
+      });
+    </script>
+  </body>
+</html>
