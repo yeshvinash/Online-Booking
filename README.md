@@ -10,7 +10,7 @@ To run the project locally, follow these steps:
 1. Clone the repository:
    
    ```bash
-     https://github.com/yeshvinash/Online-Booking.git
+     git clone https://github.com/yeshvinash/Online-Booking.git
      cd Online-Booking
    ```
   
